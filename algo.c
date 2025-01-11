@@ -14,7 +14,6 @@
 
 int *sorted(t_list *list)
 {
-    //printf("test2");
     int i;
     int swap;
     int *tab;
@@ -49,3 +48,107 @@ int *sorted(t_list *list)
 	}
     return (tab);
 }
+void indexing(t_list *list, int *sorted_array)
+{
+  int size = ft_lstsize(list);
+  int i;
+  t_list *current = list;
+
+  while (current != NULL)
+  {
+    i = 0;
+    while (i < size)
+    {
+      if (*(int *)current->content == sorted_array[i])
+      {
+        current->index = i;
+        break;
+      }
+      i++;
+    }
+    current = current->next;
+  }
+}
+
+int ft_order_count(t_list *stack_a)
+{
+  int calculation_disorder;
+  if (ft_lstsize(stack_a) <= 130)
+    calculation_disorder = 13;
+  else if (ft_lstsize(stack_a) > 130 && ft_lstsize(stack_a) <= 230)
+    calculation_disorder = 21;
+  else if (ft_lstsize(stack_a) > 230)
+    calculation_disorder = 51;
+  return (calculation_disorder);
+}
+
+void check_move(t_list *tmp, t_list **stack_a, t_list **stack_b)
+{
+    int i;
+    t_list *help;
+    int size;
+
+    if (!tmp)
+        return;
+
+    // Get the size of stack_b
+    size = ft_lstsize(*stack_b);
+
+    // Find the position of tmp in stack_b
+    help = *stack_b;
+    i = 0;
+    while (help && help->index != tmp->index)
+    {
+        i++;
+        help = help->next;
+    }
+
+    // Rotate or reverse-rotate stack_b to bring tmp to the top
+    if (i <= (size / 2))
+    {
+        while (i > 0)
+        {
+            rotate_b(&*stack_b);
+            i--;
+        }
+    }
+    else
+    {
+        while (i < size)
+        {
+            reverse_rotate_b(&*stack_b);
+            i++;
+        }
+    }
+
+    // Push tmp (now at the top of stack_b) to stack_a
+    push_a(&*stack_a, &*stack_b);
+}
+
+void sort_more_than_six(t_list **stack_a, t_list **stack_b)
+{
+  t_list *head2;
+  int *visualise = sorted(*stack_a);
+  indexing(*stack_a, visualise);
+  while (*stack_a)
+  {
+    if ((*stack_a)->index < ft_lstsize(*stack_b))
+    {
+      push_b(&*stack_a, &*stack_b);
+      rotate_b(&*stack_b);
+    }
+    else if ((*stack_a)->index < ft_lstsize(*stack_b) + ft_order_count(*stack_a))
+      push_b(&*stack_a, &*stack_b);
+    else
+        rotate_a(&*stack_a);
+  }
+  while (*stack_b)
+  {
+    head2 = (*stack_b);
+    while (head2 && head2->index != ft_lstsize(*stack_b) - 1)
+      head2 = head2->next;
+    check_move(head2 ,&*stack_a, &*stack_b);
+  }
+  free(visualise);
+}
+

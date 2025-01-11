@@ -138,4 +138,6 @@ void check_size(t_list **list, t_list **list_2)
 	    sort_4(&*list, &*list_2);
     else if (size == 5)
          sort_5(&*list, &*list_2);
+    else
+        sort_more_than_six(&*list, &*list_2);
 }

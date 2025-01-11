@@ -20,6 +20,7 @@
 
 typedef struct node{
     void    *content;
+    int     index;
     struct node *next;
 }   t_list;
 
@@ -63,5 +64,8 @@ void    check_size(t_list **list, t_list **list_2);
 int     max(t_list *list);
 void    check_list(t_list *list);
 int *sorted(t_list *list);
+void indexing(t_list *list, int *sorted_array);
+int ft_order_count(t_list *stack_a);
+void sort_more_than_six(t_list **stack_a, t_list **stack_b);
 
 # endif

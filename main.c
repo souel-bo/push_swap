@@ -90,6 +90,7 @@ void check_list(t_list *list)
 		{
 			if (*(int *)(start->content) == *(int *)(check->content))
 			{
+				printf("duplicate");
 				ft_error("Error\n");
 				ft_lstclear(&list, free);
 				exit(EXIT_FAILURE);
@@ -136,13 +137,8 @@ int main(int argc, char **argv)
 		ft_lstclear(&list, free);
 		exit(EXIT_FAILURE);
 	}
-	//check_size(&list, &list_2);
-	//print(list);
-	int *arr = sorted(list);
-	for (int i = 0; i < ft_lstsize(list); i++)
-	{
-		printf("%d\n", arr[i]);
-	}
-	free(arr);
+	check_size(&list, &list_2);
+	print(list);
 	ft_lstclear(&list, free);
+	ft_lstclear(&list_2, free);
 }
