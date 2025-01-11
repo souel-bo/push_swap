@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:19:10 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/07 21:51:47 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/11 10:45:49 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,45 +84,31 @@ int ft_order_count(t_list *stack_a)
 
 void check_move(t_list *tmp, t_list **stack_a, t_list **stack_b)
 {
-    int i;
-    t_list *help;
-    int size;
+	int i;
+	t_list *help;
+	int size;
 
-    if (!tmp)
-        return;
-
-    // Get the size of stack_b
-    size = ft_lstsize(*stack_b);
-
-    // Find the position of tmp in stack_b
-    help = *stack_b;
-    i = 0;
-    while (help && help->index != tmp->index)
-    {
-        i++;
-        help = help->next;
-    }
-
-    // Rotate or reverse-rotate stack_b to bring tmp to the top
-    if (i <= (size / 2))
-    {
-        while (i > 0)
-        {
-            rotate_b(&*stack_b);
-            i--;
-        }
-    }
-    else
-    {
-        while (i < size)
-        {
-            reverse_rotate_b(&*stack_b);
-            i++;
-        }
-    }
-
-    // Push tmp (now at the top of stack_b) to stack_a
-    push_a(&*stack_a, &*stack_b);
+	if(!tmp)
+		return;
+	size = ft_lstsize(*stack_b);
+	help = (*stack_b);
+	i = 0;
+	while(help && help->index != tmp->index)
+	{
+		i++;
+		help =help->next;
+	}
+	while(i <= (size / 2) && i != 0)
+	{
+		rotate_b(&*stack_b);
+		i--;
+	}
+	while(i > (size / 2) && i < size)
+	{
+		reverse_rotate_b(&*stack_b);
+		i++;
+	}
+	push_a(&*stack_a, &*stack_b);
 }
 
 void sort_more_than_six(t_list **stack_a, t_list **stack_b)
