@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:19:10 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/11 10:45:49 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:50:15 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,16 @@ void indexing(t_list *list, int *sorted_array)
 
 int ft_order_count(t_list *stack_a)
 {
-  int calculation_disorder;
-  if (ft_lstsize(stack_a) <= 130)
-    calculation_disorder = 13;
-  else if (ft_lstsize(stack_a) > 130 && ft_lstsize(stack_a) <= 230)
-    calculation_disorder = 21;
-  else if (ft_lstsize(stack_a) > 230)
-    calculation_disorder = 51;
-  return (calculation_disorder);
+  int disorder;
+	disorder = 0;
+
+	if (ft_lstsize(stack_a) <= 130)
+		disorder = 13;
+	else if(ft_lstsize(stack_a) <= 230 && ft_lstsize(stack_a) > 130)
+		disorder = 21;
+	else if (ft_lstsize(stack_a) > 230)
+		disorder = 51;
+	return (disorder);
 }
 
 void check_move(t_list *tmp, t_list **stack_a, t_list **stack_b)

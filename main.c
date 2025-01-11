@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 17:06:13 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/11 10:01:05 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/11 13:54:29 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	check_size(&list, &list_2);
-	print(list);
+	//print(list);
 	ft_lstclear(&list, free);
 	ft_lstclear(&list_2, free);
 }
