@@ -6,6 +6,10 @@ ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_
 ft_lstsize_bonus.c ft_split.c ft_strlen.c main.c push_swap.c push_swap_utils.c chunk.c norm_handling.c\
 helping.c push_swap_utils_2.c
 
+BONUS_SRC = checker_bonus.c
+BONUS_NAME = checker
+
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
@@ -23,6 +27,12 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
+bonus:$(BONUS_NAME)
+
+$(BONUS_NAME): $(OBJ) push_swap.h
+	@echo $(GREEN_BOLD) "bonus executable created successfully ✅✅✅" $(NC)
+	@$(CC) $(CFLAGS) $(OBJ)  -o $(BONUS_NAME)
+
 $(NAME): $(OBJ) push_swap.h
 	@echo $(GREEN_BOLD) "executable created successfully ✅✅✅" $(NC)
 	@$(CC) $(CFLAGS) $(OBJ)  -o $(NAME)
@@ -37,8 +47,9 @@ clean:
 fclean: clean
 	@echo  $(WHITE_BOLD)"Cleaning the program 🧹🧹🧹" $(NC)
 	@rm -f $(NAME)
+	@rm -rf $(BONUS_NAME)
 
-re: fclean all
+re: fclean all 
 
 .PHONY: all clean fclean re
 

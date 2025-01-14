@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 14:05:15 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/13 21:03:43 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:25:16 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct node
 {
@@ -39,6 +40,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 long	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //function helper
 void	free_split(char **split);
@@ -77,5 +79,8 @@ void	sort_4(t_list **list, t_list **list_2);
 void	sort_3(t_list **list);
 int		min(t_list *list);
 void	sort_5(t_list **list, t_list **list_2);
+
+//bonus function
+void	rotate_a_bonus(t_list **list1);
 
 #endif

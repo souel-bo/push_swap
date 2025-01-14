@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: souel-bo <souel-bo@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 01:42:09 by souel-bo          #+#    #+#             */
-/*   Updated: 2024/11/21 05:19:53 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:29:44 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,3 @@ char	*get_next_line(int fd)
 	}
 	return (ft_read_line(line, &container, fd));
 }
-
-/*int main()
-{
-    int fd = open("test", O_RDONLY);
-    //char *test;
-    //while ((test = get_next_line(fd)) != NULL)
-    //{
-		//close(0);
-        printf("%s", get_next_line(1));
-      //  free(test);
-	//}
-   // printf("\n");
-    close(fd);//       *s = 's'
-    return 0; 
-}*/
