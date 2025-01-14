@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 01:42:09 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 11:29:44 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:31:24 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,21 @@ char	*ft_read_line(char *line, char **container, int fd)
 	}
 }
 
-char	*get_next_line(int fd)
+char	*check(char *container)
+{
+	free(container);
+	return (NULL);
+}
+
+char	*get_next_line(int fd, int k)
 {
 	char		*line;
 	static char	*container;
 	char		*temporary;
 
 	line = NULL;
+	if (k == 1)
+		return (check(container));
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (container && !ft_strchr(container, '\n'))

@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:46:48 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 12:42:21 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:45:07 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,18 @@ void	ko(t_list *list)
 	exit(EXIT_FAILURE);
 }
 
-void	sorting_aplly(char *input, t_list **list_1, t_list **list_2)
-{
-	if (ft_strncmp(input, "ra\n", 3) == 0)
-		rotate_a_bonus(&*list_1);
-	if (ft_strncmp(input, "rb\n", 3) == 0)
-		rotate_b_bonus(&*list_2);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*list_1;
     t_list	*list_2;
 	int		i;
 	char	*input;
+	int		k;
 
 	if (argc < 2)
 		return (1);
 	i = 1;
+	k = 0;
 	list_1 = NULL;
 	list_2 = NULL;
 	while (i < argc)
@@ -51,13 +45,19 @@ int	main(int argc, char **argv)
 		i++;	
 	}
 	check_list(list_1);
-	while ((input = get_next_line(0)) != NULL)
+	input = get_next_line(0, k);
+	while ((input != NULL))
     {
-        sorting_aplly(input, &list_1, &list_2);
+        k = sorting_aplly(input, &list_1, &list_2);
         free(input);
+		input = get_next_line(0, k);
     }
-	if (check_if_sorted(&list_1) == 1)
+	if (k == 1)
+		ft_lstclear(&list_1, free);
+	if (list_2 != NULL)
+		ft_lstclear(&list_2, free);
+	if (check_if_sorted(&list_1) == 1 && k == 0)
 		ok(list_1);
-	else if (check_if_sorted(&list_1) == 0)
+	else if (check_if_sorted(&list_1) == 0 && k == 0)
 		ko(list_1);
 }

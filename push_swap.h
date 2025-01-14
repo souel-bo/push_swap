@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 14:05:15 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 12:41:36 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:45:42 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,20 @@ void	sort_5(t_list **list, t_list **list_2);
 //bonus function
 void	rotate_a_bonus(t_list **list1);
 void	rotate_b_bonus(t_list **list2);
+void	swap_a_bonus(t_list **list);
+void	swap_b_bonus(t_list **list);
+void	swap_stacks(t_list **list1, t_list **list2);
+void	push_a_bonus(t_list **list1, t_list **list2);
+void	push_b_bonus(t_list **list1, t_list **list2);
+void	rotate_stacks_bonus(t_list **list1, t_list **list2);
+void	reverse_rotate_a_bonus(t_list **list1);
+void	reverse_rotate_b_bonus(t_list **list2);
+void	reverse_rotate_stacks_bonus(t_list **list1, t_list **list2);
+void	ok(t_list *list);
+void	ko(t_list *list);
+int		sorting_aplly(char *input, t_list **list_1, t_list **list_2);
+void	rotate_a_bonus(t_list **list1);
+void	swap_stacks_bonus(t_list **list1, t_list **list2);
+int		sorting_aplly(char *input, t_list **list_1, t_list **list_2);
 
 #endif

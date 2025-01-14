@@ -1,4 +1,4 @@
-CC = cc
+CC = cc #-fsanitize=address -g3
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 BONUS_NAME = checker
@@ -11,7 +11,8 @@ helping.c push_swap_utils_2.c helper_push_swap.c
 BONUS_SRC = checker_bonus.c get_next_line_utils.c get_next_line.c checker_bonus_utils.c algo.c ft_atoi.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c\
 ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
 ft_lstsize_bonus.c ft_split.c ft_strlen.c push_swap.c push_swap_utils.c chunk.c norm_handling.c\
-helping.c push_swap_utils_2.c helper_push_swap.c ft_strncmp.c
+helping.c push_swap_utils_2.c helper_push_swap.c ft_strncmp.c checker_bonus_utils_2.c checker_helper_bonus_3.c
+
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
