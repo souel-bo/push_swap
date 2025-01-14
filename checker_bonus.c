@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:46:48 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 11:29:35 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:34:07 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int	main(int argc, char **argv)
 		i++;	
 	}
 	check_list(list_1);
-	while (input = get_next_line(0) != NULL)
-	{
-		sorting_aplly(input, &list_1, &list_2);
-		free(input);
-	}
+	while ((input = get_next_line(0)) != NULL)
+    {
+        sorting_aplly(input, &list_1, &list_2);
+        free(input);
+    }
 	if (check_if_sorted(&*list_1) == 1)
 		ok(list_1);
 	else if (check_if_sorted(&*list_1) == 0)
