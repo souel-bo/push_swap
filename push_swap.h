@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 14:05:15 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 11:25:16 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:41:36 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void	sort_5(t_list **list, t_list **list_2);
 
 //bonus function
 void	rotate_a_bonus(t_list **list1);
+void	rotate_b_bonus(t_list **list2);
 
 #endif

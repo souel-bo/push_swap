@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:46:48 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 11:34:07 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:42:21 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	sorting_aplly(char *input, t_list **list_1, t_list **list_2)
 {
 	if (ft_strncmp(input, "ra\n", 3) == 0)
 		rotate_a_bonus(&*list_1);
+	if (ft_strncmp(input, "rb\n", 3) == 0)
+		rotate_b_bonus(&*list_2);
 }
 
 int	main(int argc, char **argv)
@@ -54,8 +56,8 @@ int	main(int argc, char **argv)
         sorting_aplly(input, &list_1, &list_2);
         free(input);
     }
-	if (check_if_sorted(&*list_1) == 1)
+	if (check_if_sorted(&list_1) == 1)
 		ok(list_1);
-	else if (check_if_sorted(&*list_1) == 0)
+	else if (check_if_sorted(&list_1) == 0)
 		ko(list_1);
 }
