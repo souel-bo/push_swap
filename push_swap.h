@@ -6,7 +6,7 @@
 /*   By: souel-bo <souel-bo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 14:05:15 by souel-bo          #+#    #+#             */
-/*   Updated: 2025/01/14 16:45:42 by souel-bo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:54:55 by souel-bo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,5 @@ void	ko(t_list *list);
 int		sorting_aplly(char *input, t_list **list_1, t_list **list_2);
 void	rotate_a_bonus(t_list **list1);
 void	swap_stacks_bonus(t_list **list1, t_list **list2);
-int		sorting_aplly(char *input, t_list **list_1, t_list **list_2);
 
 #endif
